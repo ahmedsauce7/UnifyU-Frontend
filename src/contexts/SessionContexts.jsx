@@ -1,8 +1,8 @@
 import { useLocalStorage } from '@mantine/hooks'
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
-export const SessionContext = createContext()
 
+const SessionContext = createContext()
 const SessionContextProvider = ({ children }) => {
   // const [token, setToken] = useLocalStorage({ key: 'authToken' })
   const [token, setToken] = useState()
@@ -10,7 +10,7 @@ const SessionContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
 
   const verifyToken = async currentToken => {
-    const response = await fetch('http://localhost:5173/auth/verify', {
+    const response = await fetch('http://localhost:5005/auth/verify', {
       headers: {
         Authorization: `Bearer ${currentToken}`,
       },
@@ -53,4 +53,4 @@ const SessionContextProvider = ({ children }) => {
   )
 }
 
-export default SessionContextProvider
+export {SessionContextProvider, SessionContext}

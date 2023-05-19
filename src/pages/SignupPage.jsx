@@ -1,52 +1,79 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const SignupPage = () => {
-  const navigate = useNavigate()
+const Signup = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  const handleSubmit = async event => {
-    event.preventDefault()
-    const response = await fetch('http://localhost:5005/auth/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    })
-    if (response.status === 201) {
-      navigate('/login')
+    try {
+      const response = await fetch('http://localhost:5005/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password, name }),
+      });
+
+      if (response.ok) {
+        // User creation successful
+        const { user } = await response.json();
+        console.log('User created:', user);
+        navigate('/login');
+      } else {
+        // User creation failed
+        const { message } = await response.json();
+        setErrorMessage(message);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setErrorMessage('An error occurred. Please try again.');
     }
-  }
+  };
 
   return (
-    <>
+    <div>
       <h1>Signup</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Email
+        <div>
+          <label>Email:</label>
           <input
-            type='email'
-            required
+            type="email"
             value={email}
-            onChange={event => setEmail(event.target.value)}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type='password'
+            onChange={(e) => setEmail(e.target.value)}
             required
-            value={password}
-            onChange={event => setPassword(event.target.value)}
           />
-        </label>
-        <button type='submit'>Sign Up</button>
+        </div>
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Name:</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <button type="submit">Sign Up</button>
+        </div>
+        {errorMessage && <p>{errorMessage}</p>}
       </form>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default SignupPage
+export default Signup;

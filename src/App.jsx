@@ -4,6 +4,7 @@ import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import ProfilePage from './pages/ProfilePage'
 import HomePage from './pages/HomePage'
+import IsPrivate from './components/isPrivate'
 
 function App() {
   return (

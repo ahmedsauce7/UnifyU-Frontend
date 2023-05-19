@@ -1,12 +1,10 @@
 import { useContext, useState } from 'react'
-import { SessionContext } from '../contexts/SessionContext'
+import { SessionContext } from '../contexts/SessionContexts'
 import { Link, useNavigate } from 'react-router-dom'
 
 const LoginPage = () => {
   const navigate = useNavigate()
-
   const { setToken } = useContext(SessionContext)
-
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -29,7 +27,7 @@ const LoginPage = () => {
   return (
     <>
       <h1>Login</h1>
-      <Link to='/profile'>Profile</Link>
+      <Link to='/'>Home</Link>
       <form onSubmit={handleSubmit}>
         <label>
           Email
