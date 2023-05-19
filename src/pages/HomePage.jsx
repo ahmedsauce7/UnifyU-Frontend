@@ -1,10 +1,11 @@
+import { useEffect, useState } from 'react'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function HomePage() {
+  const [posts, setPosts] = useState([])
   return (
-    <div>
-        <h1>HomePage</h1>
-        </div>
+    
   )
 }
 
