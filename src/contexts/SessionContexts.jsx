@@ -8,6 +8,7 @@ const SessionContextProvider = ({ children }) => {
   const [token, setToken] = useState()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [user, setUser] = useState(null);
 
   const verifyToken = async currentToken => {
     const response = await fetch('http://localhost:5005/auth/verify', {
@@ -47,7 +48,7 @@ const SessionContextProvider = ({ children }) => {
   }
 
   return (
-    <SessionContext.Provider value={{ token, setToken, isLoggedIn, isLoading, logout }}>
+    <SessionContext.Provider value={{ token, user, setToken, isLoggedIn, isLoading, logout }}>
       {children}
     </SessionContext.Provider>
   )

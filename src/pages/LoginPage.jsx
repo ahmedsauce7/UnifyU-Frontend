@@ -1,6 +1,9 @@
 import { useContext, useState } from 'react'
 import { SessionContext } from '../contexts/SessionContexts'
 import { Link, useNavigate } from 'react-router-dom'
+import Navbar from '../components/Navbar'
+
+
 
 const LoginPage = () => {
   const navigate = useNavigate()
@@ -26,6 +29,7 @@ const LoginPage = () => {
 
   return (
     <>
+    <Navbar/>
       <h1>Login</h1>
       <Link to='/'>Home</Link>
       <form onSubmit={handleSubmit}>

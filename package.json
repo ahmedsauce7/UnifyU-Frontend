@@ -12,6 +12,7 @@
   "dependencies": {
     "@callstack/react-theme-provider": "^3.0.8",
     "@codecraftkit/sessioncontext": "^1.1.33",
+    "@iconscout/react-unicons": "^2.0.2",
     "@mantine/core": "^6.0.11",
     "@mantine/hooks": "^6.0.11",
     "axios": "^1.4.0",
@@ -20,7 +21,7 @@
     "jwt-decode": "^3.1.2",
     "mdb-react-ui-kit": "^6.0.0",
     "react": "^18.2.0",
-    "react-bootstrap-alert": "^1.0.7",
+    "react-bootstrap-alert": "^1.0.0",
     "react-bootstrap-buttons": "^1.0.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",

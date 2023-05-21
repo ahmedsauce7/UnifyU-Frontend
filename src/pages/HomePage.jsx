@@ -1,11 +1,14 @@
-import { useEffect, useState } from 'react'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import ProfileSide from '../components/Profile/profileSide'
+import './HomePage.css'
 
 function HomePage() {
-  const [posts, setPosts] = useState([])
   return (
-    
+    <div className='HomePage'>
+      <ProfileSide/>
+      <div>Page</div>
+      <div>anything</div>
+    </div>
   )
 }
 
