@@ -3,8 +3,9 @@ import { SessionContext } from '../contexts/SessionContexts'
 import { useNavigate } from 'react-router-dom'
 
 const ProfilePage = () => {
-  const { logout, isLoggedIn } = useContext(SessionContext)
+  const { logout, isLoggedIn, isLoading } = useContext(SessionContext)
   const navigate = useNavigate();
+  console.log(isLoading)
   const logoutUser = () => {
     logout();
     navigate('/')

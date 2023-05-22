@@ -38,6 +38,7 @@ const SessionContextProvider = ({ children }) => {
       setIsLoading(false)
     } else {
       localStorage.removeItem('authToken')
+      setIsLoading(false)
     }
   }, [token])
 
@@ -48,7 +49,7 @@ const SessionContextProvider = ({ children }) => {
   }
 
   return (
-    <SessionContext.Provider value={{ token, user, setToken, isLoggedIn, isLoading, logout }}>
+    <SessionContext.Provider value={{ token, user, setToken, isLoggedIn, setIsLoggedIn, isLoading, logout }}>
       {children}
     </SessionContext.Provider>
   )

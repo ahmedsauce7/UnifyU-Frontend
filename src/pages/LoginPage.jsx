@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar'
 
 const LoginPage = () => {
   const navigate = useNavigate()
-  const { setToken } = useContext(SessionContext)
+  const { setToken, setIsLoggedIn } = useContext(SessionContext)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -22,7 +22,8 @@ const LoginPage = () => {
     })
     if (response.status === 200) {
       const tokenFromResponse = await response.json()
-      setToken(tokenFromResponse)
+      setToken(tokenFromResponse.authToken)
+      setIsLoggedIn(true)
       navigate('/profile')
     }
   }
