@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const ProfilePage = () => {
   const { logout, isLoggedIn, isLoading } = useContext(SessionContext)
   const navigate = useNavigate();
-  console.log(isLoading)
+  console.log(isLoading, isLoggedIn)
   const logoutUser = () => {
     logout();
     navigate('/')

@@ -20,7 +20,6 @@ const SessionContextProvider = ({ children }) => {
       const parsed = await response.json()
       setToken(currentToken)
       setIsLoggedIn(true)
-      console.log(parsed)
     }
     setIsLoading(false)
   }
@@ -33,12 +32,13 @@ const SessionContextProvider = ({ children }) => {
   }, [])
 
   useEffect(() => {
+    console.log(isLoggedIn, "testing")
     if (token) {
       localStorage.setItem('authToken', token)
-      setIsLoading(false)
+      
     } else {
       localStorage.removeItem('authToken')
-      setIsLoading(false)
+      
     }
   }, [token])
 
