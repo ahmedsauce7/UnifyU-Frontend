@@ -8,7 +8,7 @@ import { SessionContext } from '../../contexts/SessionContexts'
 
 function Posts() {
   const [ postData, setPostData ] = useState([])
-  const [ needrefresh, setrefresh ] = useState(false)
+  const [ needRefresh, setNeedRefresh ] = useState(false)
 
   const {user} = useContext(SessionContext)
   console.log(user)
@@ -24,20 +24,19 @@ function Posts() {
     }
   }
   useEffect(() => {
-   
     getPosts()
   }, [])
   useEffect(()=>{
-    if (needrefresh) {
+    if (needRefresh) {
       getPosts()
-      setrefresh(false)
+      setNeedRefresh(false)
     }
-  },[needrefresh])
+  }, [needRefresh])
 
   return (
     <div className="Posts">
         {postData.map((el) =>{  
-            return <Post post={el} setrefresh={setrefresh} key={el._id}/>
+            return <Post post={el} setNeedRefresh={setNeedRefresh} key={el._id}/>
         })}
     </div>
   )
