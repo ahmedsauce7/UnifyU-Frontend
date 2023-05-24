@@ -49,7 +49,7 @@ function Post({ post }) {
         <span>
           <b>{post.name}</b>
         </span>
-        <span>{post.desc}</span>
+    
       </div>
 
       <form onSubmit={handleSubmitComment}>
