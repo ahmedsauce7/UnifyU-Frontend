@@ -6,7 +6,7 @@ import Heart from "../../assets/logo.png";
 import NotLike from "../../assets/logo.png";
 import axios from "axios";
 
-function Post({ post }) {
+function Post({ post, setrefresh }) {
   const [comment, setComment] = useState("");
 
   const handleCommentChange = (event) => {
@@ -22,6 +22,7 @@ function Post({ post }) {
         { comment }
       );
       console.log(response.data);
+      setrefresh(true)
     } catch (error) {
       console.log(error);
     }
@@ -48,7 +49,7 @@ function Post({ post }) {
           {post.firstName} {post.lastName}
         </h2>
         <p>{post.description}</p>
-        <p>{post.comment}</p>
+        <p>{post.comments}</p>
       </div>
 
       <form onSubmit={handleSubmitComment}>
@@ -58,5 +59,15 @@ function Post({ post }) {
     </div>
   );
 }
-
+/*
+function Posts({ posts }) {
+  return (
+    <div className="Posts">
+      {posts.map((post) => (
+        <Post post={post} key={post._id} />
+      ))}
+    </div>
+  );
+}
+*/
 export default Post;
