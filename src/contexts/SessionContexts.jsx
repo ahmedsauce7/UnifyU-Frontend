@@ -16,10 +16,11 @@ const SessionContextProvider = ({ children }) => {
         Authorization: `Bearer ${currentToken}`,
       },
     })
-    if (response.status === 200) {
+    if (response.ok) {
       const parsed = await response.json()
       setToken(currentToken)
       setIsLoggedIn(true)
+      setUser(parsed)
     }
     setIsLoading(false)
   }
@@ -49,7 +50,7 @@ const SessionContextProvider = ({ children }) => {
   }
 
   return (
-    <SessionContext.Provider value={{ token, user, setToken, isLoggedIn, setIsLoggedIn, isLoading, logout }}>
+    <SessionContext.Provider value={{ token, user, setUser, setToken, isLoggedIn, setIsLoggedIn, isLoading, logout }}>
       {children}
     </SessionContext.Provider>
   )

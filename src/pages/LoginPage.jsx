@@ -7,9 +7,10 @@ import Navbar from '../components/Navbar'
 
 const LoginPage = () => {
   const navigate = useNavigate()
-  const { setToken, setIsLoggedIn } = useContext(SessionContext)
+  const { setToken, setIsLoggedIn, setUser } = useContext(SessionContext)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  
 
   const handleSubmit = async event => {
     event.preventDefault()
@@ -24,6 +25,7 @@ const LoginPage = () => {
       const tokenFromResponse = await response.json()
       setToken(tokenFromResponse.authToken)
       setIsLoggedIn(true)
+      setUser(tokenFromResponse.foundUser)
       navigate('/profile')
     }
   }
