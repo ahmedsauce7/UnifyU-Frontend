@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Post.css";
 import Comment from "../../assets/logo.png";
 import Share from "../../assets/logo.png";
 import Heart from "../../assets/logo.png";
 import NotLike from "../../assets/logo.png";
 import axios from "axios";
+import { SessionContext } from "../../contexts/SessionContexts";
 
-function Post({ post, setrefresh }) {
+
+function Post({ post, setNeedRefresh }) {
   const [comment, setComment] = useState("");
+  const {token} = useContext(SessionContext)
 
   const handleCommentChange = (event) => {
     setComment(event.target.value);
@@ -19,10 +22,11 @@ function Post({ post, setrefresh }) {
     try {
       const response = await axios.post(
         `http://localhost:5005/comments/${post._id}`,
-        { comment }
+        { comment },
+        { headers: {Authorization: `Bearer ${token}`}}
       );
       console.log(response.data);
-      setrefresh(true)
+      setNeedRefresh(true)
     } catch (error) {
       console.log(error);
     }
@@ -49,7 +53,9 @@ function Post({ post, setrefresh }) {
           {post.firstName} {post.lastName}
         </h2>
         <p>{post.description}</p>
-        <p>{post.comments}</p>
+        {post.comments.map((el) =>{  
+            return <p>{el.comment}</p>
+        })}
       </div>
 
       <form onSubmit={handleSubmitComment}>
@@ -59,15 +65,5 @@ function Post({ post, setrefresh }) {
     </div>
   );
 }
-/*
-function Posts({ posts }) {
-  return (
-    <div className="Posts">
-      {posts.map((post) => (
-        <Post post={post} key={post._id} />
-      ))}
-    </div>
-  );
-}
-*/
+
 export default Post;
