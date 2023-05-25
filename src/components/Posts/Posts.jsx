@@ -6,12 +6,11 @@ import axios from 'axios'
 import { SessionContext } from '../../contexts/SessionContexts'
 
 
-function Posts() {
+function Posts({needRefresh, setNeedRefresh}) {
   const [ postData, setPostData ] = useState([])
-  const [ needRefresh, setNeedRefresh ] = useState(false)
 
   const {user} = useContext(SessionContext)
-  console.log(user)
+  console.log('User from context',user)
   const getPosts = async() => {
     try {
       const response = await axios.get(`http://localhost:5005/posts/${user._id}/timeline`)

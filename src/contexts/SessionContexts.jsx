@@ -21,8 +21,11 @@ const SessionContextProvider = ({ children }) => {
       setToken(currentToken)
       setIsLoggedIn(true)
       setUser(parsed)
+      setIsLoading(false)
+    } else {
+
+      setIsLoading(false)
     }
-    setIsLoading(false)
   }
 
   useEffect(() => {

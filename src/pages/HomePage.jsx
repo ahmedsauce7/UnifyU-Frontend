@@ -9,7 +9,7 @@ function HomePage() {
     <div className='HomePage'>
       <ProfileSide/>
       <PostSide/>
-      <RightSide/>
+      {/* <RightSide/> */}
     </div>
   )
 }
