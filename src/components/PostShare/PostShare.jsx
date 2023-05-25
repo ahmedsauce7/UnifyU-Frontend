@@ -49,9 +49,6 @@ export const PostShare = ({setNeedRefresh}) => {
       };
   return (
     <div className="PostShare">
-         {/* <form onSubmit={submitHandle} type='text' placeholder='Tell me your issues' value={text} onChange={(event) => {
-            setText(event.target.value)
-        }}> */}
         <img className="postsimg" src={profileimg} alt="profile img" />
     <div>
     <div className="PostOptions">
@@ -60,12 +57,6 @@ export const PostShare = ({setNeedRefresh}) => {
             Photo
         </div>
         <label>
-          {/* <input
-            type='description'
-            required
-            value={description}
-            onChange={event => setDescription(event.target.value)}
-          /> */}
         </label>
         <form onSubmit={handleSubmitPost}>
         <input type="text" value={description} onChange={handlePostChange} />
