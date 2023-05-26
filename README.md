@@ -1,4 +1,4 @@
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![unifyy-logo](https://github.com/ahmedsauce7/UnifyU-frontend/assets/125455046/cbc8a897-3ae7-4bab-a5fa-1c189d890550)
 
 ## Project Title
 UnifyU
