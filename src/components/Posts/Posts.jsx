@@ -13,7 +13,7 @@ function Posts({needRefresh, setNeedRefresh}) {
   console.log('User from context',user)
   const getPosts = async() => {
     try {
-      const response = await axios.get(`http://localhost:5005/posts/${user._id}/timeline`)
+      const response = await axios.get(`${import.meta.env.VITE_BASE_API_URL}/posts/${user._id}/timeline`)
     if(response){
       console.log(response.data)
       setPostData(response.data)

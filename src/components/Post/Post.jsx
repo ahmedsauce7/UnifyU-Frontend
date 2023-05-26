@@ -18,7 +18,7 @@ function Post({ post, setNeedRefresh }) {
 
     try {
       const response = await axios.post(
-        `http://localhost:5005/comments/${post._id}`,
+        `${import.meta.env.VITE_BASE_API_URL}/comments/${post._id}`,
         { comment },
         { headers: {Authorization: `Bearer ${token}`}}
       );
@@ -32,7 +32,7 @@ function Post({ post, setNeedRefresh }) {
 
   const handleDeletePost = async (postId) => {
     try {
-      await axios.delete(`http://localhost:5005/posts/${postId}`, {
+      await axios.delete(`${import.meta.env.VITE_BASE_API_URL}/posts/${postId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setNeedRefresh(true);
@@ -48,7 +48,7 @@ function Post({ post, setNeedRefresh }) {
   const handleUpdateDescription = async () => {
     try {
       await axios.put(
-        `http://localhost:5005/posts/${post._id}`,
+        `${import.meta.env.VITE_BASE_API_URL}/posts/${post._id}`,
         { description: updatedDescription },
         { headers: { Authorization: `Bearer ${token}` } }
       );

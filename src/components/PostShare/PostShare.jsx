@@ -37,7 +37,7 @@ export const PostShare = ({setNeedRefresh}) => {
 
         try {
           const response = await axios.post(
-            "http://localhost:5005/posts/",
+            `${import.meta.env.VITE_BASE_API_URL}/posts/`,
             { description },
             { headers: {Authorization: `Bearer ${token}`}}
           );
