@@ -1,3 +1,5 @@
+![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+
 ## Project Title
 UnifyU
 <br>
@@ -39,15 +41,63 @@ UnifyU is an innovative social media platform designed to foster meaningful conn
 <br>
 <hr>
 
+## Models
+User
+```{
+  email: { type: String, unique: true, required: true, ref: "Post" },
+  password: { type: String, required: true },
+  name: { type: String, required: true },
+  firstName: { type: String, required: true },
+  lastName : { type: String, required: true },
+  profilePicture: { type: String },
+  coverPicture: { type: String },
+  followers: [] ,
+  following: [],
+},
+  {timestamps: true}
+```
+ Post
+ ```{
+     userId: { type: Schema.Types.ObjectId, ref: "User"},
+     firstName: { type: String},
+     lastName: { type: String},
+     location: String,
+     description: String,
+     picture: String,
+     userPicturePath: String,
+     likes: [],
+     comments: [{type: Schema.Types.ObjectId, ref: "Comment"}],
+      },
+      { timestamps: true }
+    );
+ ```   
+Comment
+ ``` {
+    postId: { type: Schema.Types.ObjectId, ref: "Post" },
+    userId: { type: Schema.Types.ObjectId, ref: "User"  },
+    comment: { type: String },
+  },
+  { timestamps: true }
+);
+```
+## 🚀 About us
+As a team, we complement each other's strengths and work collaboratively to deliver high-quality software solutions. We value open communication, continuous learning, and staying up-to-date with the latest industry trends. Our combined expertise enables us to tackle complex challenges and create innovative solutions that meet the needs of our users.
+
+We are excited to embark on this journey with unifyU and look forward to providing you with a seamless and engaging social media experience.
+
+Please feel free to reach out to us with any questions or suggestions. We are here to make unifyU the best it can be!
+
+
 ## App link
 [Click here to access](https://animeuni.adaptable.app/)
 <br>
 <hr>
 
 ## Git
-[Click here to access the Git link](https://github.com/ahmedsauce7/UnifyU-frontend.git)
+[Click here to access the Git link](https://github.com/ahmedsauce7/UnifyU-backend.git)
 <br>
 <hr>
 
 ## Slides 
 [Click here to access the slides](https://docs.google.com/presentation/d/1UJT3IR1RaIi-86EaepUcC1dzieG6XmSRXx0fFj9dX3o/edit#slide=id.g23e6cfc0529_1_28)
+
