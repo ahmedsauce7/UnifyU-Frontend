@@ -31,10 +31,10 @@ const LoginPage = () => {
   }
 
   return (
-    <>
-    <Navbar/>
+    <> 
+    <div className="login">
+    <Link className='Button' to='/'>Home</Link>
       <h1>Login</h1>
-      <Link to='/'>Home</Link>
       <form onSubmit={handleSubmit}>
         <label>
           Email
@@ -56,6 +56,7 @@ const LoginPage = () => {
         </label>
         <button type='submit'>Log In</button>
       </form>
+      </div>
     </>
   )
 }

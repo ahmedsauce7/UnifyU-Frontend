@@ -41,7 +41,7 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div className='signup'>
       <Navbar/>
       <h1>Signup</h1>
       <form onSubmit={handleSubmit}>
@@ -91,7 +91,7 @@ const Signup = () => {
           />
         </div>
         <div>
-          <button type="submit">Sign Up</button>
+          <button className='Button' type="submit">Sign Up</button>
         </div>
         {errorMessage && <p>{errorMessage}</p>}
       </form>

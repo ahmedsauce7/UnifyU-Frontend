@@ -20,7 +20,14 @@
     gap: 1.5rem;
 }
 
-
-.ReactIcons{
-    width: 30px;
+.ReactButton{
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 0.5rem;
+    background: salmon;
+    transition: all 100ms ease-out;
+    height: 2rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
 }

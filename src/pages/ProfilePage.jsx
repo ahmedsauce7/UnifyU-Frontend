@@ -16,24 +16,28 @@ const ProfilePage = () => {
 
 
   return (
-    <>
+    <> <div className="profile">
     <h1>Profile</h1>
     {user ? (
       <>
-        <p>User ID: {user._id}</p>
+        {/* <p>User ID: {user._id}</p> */}
         <p>Email: {user.email}</p>
-        <p>Name: {user.name}</p>
+        <p>Username: {user.name}</p>
         <p>First Name: {user.firstName}</p>
         <p>Last Name: {user.lastName}</p>
       </>
     ) : (
       <p>Loading user data...</p>
     )}
-    <button type='button' onClick={logoutUser}>
+    </div>
+    <div className='profilebtn'>
+    <button className='Button' type='button' onClick={logoutUser}>
       Log Out
     </button>
-    <Link to="/">Home</Link>
+    <Link className='Button' to="/">Home</Link>
+    </div>
   </>
+  
 );
 };
 

@@ -115,7 +115,7 @@ function Post({ post, setNeedRefresh }) {
       </div>
       <form onSubmit={handleSubmitComment}>
   <input type="text" value={comment} onChange={handleCommentChange} />
-  <button type="submit">Submit Comment</button>
+  <button className="ReactButton" type="submit">Submit Comment</button>
 </form>
     </div>
   );
